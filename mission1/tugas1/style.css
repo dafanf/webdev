@@ -1,0 +1,36 @@
+.item1 { grid-area: birutua; background-color: #0070c0; }
+.item2 { grid-area: putih; background-color: white;}
+.item3 { grid-area: hitam; background-color: black; color: white;}
+.item4 { grid-area: coklat; background-color: #806000; color: white;}
+.item5 { grid-area: merjam; background-color: #ff99ff;}
+.item6 { grid-area: biru; background-color: #00b0f0;}
+.item7 { grid-area: kuning; background-color: yellow;}
+.item8 { grid-area: merah; background-color: red; color: white;}
+.item9 { grid-area: ungu; background-color: #7030a0; color: white;}
+.item10 { grid-area: abu; background-color: grey;}
+.item11 { grid-area: hijau; background-color: #00b050;}
+.item12 { grid-area: oranye; background-color: #ffc000;}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+  'birutua birutua hitam hitam hitam hitam'
+  'birutua birutua coklat coklat putih merjam'
+  'birutua birutua coklat coklat putih biru'
+  'kuning kuning ungu ungu putih biru'
+  'merah merah ungu ungu abu abu'
+  'hijau hijau oranye oranye abu abu';
+  grid-gap: 0px;
+  background-color: #2196F3;
+  grid-auto-rows: minmax(100px,auto);
+}
+
+.grid-container > div {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: 30px;
+  border: black solid 1px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 24px;
+}

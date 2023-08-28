@@ -1,0 +1,39 @@
+.bg-light-ash-grey{
+    background-color: #f3f4f6;
+}
+
+.header-text{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 3.8rem;
+}
+
+.team-text{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+}
+
+.image-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rounded-photo{
+    border-radius: 50%;
+    width: 100%;
+}
+
+.hovered_underlined {
+    text-decoration: none;
+    transition: text-decoration 0.3s;
+}
+
+.hovered_underlined:hover {
+    text-decoration: underline;
+}
+
+.text-end{
+    text-align: end;
+}
