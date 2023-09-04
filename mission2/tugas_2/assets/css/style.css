@@ -33,7 +33,7 @@ body{
     animation: road 1s linear infinite;
 }
  
-#dino{
+#charizard{
     width: 50px;
     height: 50px;
     position: relative;
@@ -41,16 +41,16 @@ body{
     left: 90px;
 }
 
-#cactus{
+#pokeball{
     width: 50px;
     height: 50px;
     position: relative;
     top: 110px;
     left: 850px;
-    animation: cactus 1s linear infinite;
+    animation: pokeball 1s linear infinite;
 }
 
-@keyframes cactus {
+@keyframes pokeball {
     0%{
         left: 800px;
     }

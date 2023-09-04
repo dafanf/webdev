@@ -1,5 +1,5 @@
-const char = document.getElementById('dino');
-const cactus = document.getElementById('cactus');
+const char = document.getElementById('charizard');
+const pokeball = document.getElementById('pokeball');
 const playerScore = document.getElementById('score');
 
 let score = 0;
@@ -16,16 +16,15 @@ function jump(){
     setTimeout(function(){
         char.classList.remove('animate');
     },500);
-    let score = 0;
     interval = setInterval(totalScore, 100);
 }
 
-const ifHitCactus = setInterval(function(){
+const ifHitpokeball = setInterval(function(){
     const charTop = parseInt(window.getComputedStyle(char).getPropertyValue('top'))
-    const cactusLeft = parseInt(window.getComputedStyle(cactus).getPropertyValue('left'))
-    if (cactusLeft < 90 && cactusLeft > 0 && charTop >= 60){
-        cactus.style.animation = 'none';
-        cactus.style.display = 'none';
+    const pokeballLeft = parseInt(window.getComputedStyle(pokeball).getPropertyValue('left'))
+    if (pokeballLeft < 70 && pokeballLeft > 0 && charTop >= 70){
+        pokeball.style.animation = 'none';
+        pokeball.style.display = 'none';
         if (confirm("Charizard kamu nabrak, mau ulangi lagi??")) {
             window.location.reload();
         }
