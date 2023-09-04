@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "nama" : "Bakso",
+        "harga": "15000",
+        "foto" : "assets/img/baso.jpg"
+    },
+    {
+        "id": 2,
+        "nama" : "Mie Ayam",
+        "harga": "13000",
+        "foto" : "assets/img/mie-ayam.jpg"
+    },
+    {
+        "id": 3,
+        "nama" : "Mie Yamien",
+        "harga": "17000",
+        "foto" : "assets/img/yamien.jpg"
+
+    },
+    {
+        "id": 4,
+        "nama" : "Ketoprak",
+        "harga": "12000",
+        "foto" : "assets/img/ketoprak.jpg"
+    },
+    {
+        "id" : 5,
+        "nama" : "Jus Jeruk",
+        "harga": "5000",
+        "foto" : "assets/img/jus-jeruk.jpg"
+    },
+    {
+        "id" : 6,
+        "nama" : "Jus Alpukat",
+        "harga": "7000",
+        "foto" : "assets/img/jus-alpukat.jpg"
+    },
+    {
+        "id" : 7,
+        "nama" : "Jus Mangga",
+        "harga": "7000",
+        "foto" : "assets/img/jus-mangga.jpg"
+    },
+    {
+        "id" : 8,
+        "nama" : "Jus Buah Naga",
+        "harga": "8000",
+        "foto" : "assets/img/jus-buah-naga.jpg"
+    }
+]
