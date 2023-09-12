@@ -4,7 +4,7 @@ import axios from "axios";
 
 import { Button, Form, Container, Modal } from "react-bootstrap";
 
-import {Entry} from "./single-entry.component";
+import Entry from "./single-entry.component";
 
 const Entries = () => {
 
@@ -13,8 +13,8 @@ const Entries = () => {
     const [changeEntry, setChangeEntry] =useState({"change": false, "id": 0});
     const [changeIngredient, setChangeIngredient] =useState({"change": false, "id": 0});
     const [newIngredientName, setNewIngredientName] = useState("");
-    const [setAddNewEntry, setAddNewEntry] = useState(false);
-    const [newEntry, setAddNewEntry] = useState({"dish": "", "ingredients": "", "calories": 0, "fat": 0});
+    const [addNewEntry, setAddNewEntry] = useState(false);
+    const [newEntry, setNewEntry] = useState({"dish": "", "ingredients": "", "calories": 0, "fat": 0});
 
     useEffect(() => {
         getAllEntries();
@@ -47,13 +47,70 @@ const Entries = () => {
                         <Form.Label>calories</Form.Label>
                         <Form.Control onChange={(event) => {newEntry.calories = event.target.value}}></Form.Control>
                         <Form.Label>fat</Form.Label>
-                        <Form.Control onChange={(event) => {newEntry.fat = event.target.value}}></Form.Control>
+                        <Form.Control type="number" onChange={(event) => {newEntry.fat = event.target.value}}></Form.Control>
                     </Form.Group>
+                    <Button onClick={() => AddSingleEntry()}>Add Entry</Button>
+                    <Button onClick={() => setAddNewEntry(false)}>Cancel</Button>
+                </Modal.Body>
+            </Modal>
+
+            <Modal show={changeIngredient.change} onHide={() => setChangeIngredient({"change":false,"id":0})} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Change Ingredient</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Group>
+                        <Form.Label>ingredient</Form.Label>
+                        <Form.Control onChange={(event) => {setNewIngredientName(event.target.value)}}></Form.Control>
+                    </Form.Group>
+                    <Button onClick={() => changeIngredientForEntry()}>Change</Button>
+                    <Button onClick={() => setChangeIngredient({"change":false,"id":0})}>Cancel</Button>
+                </Modal.Body>
+            </Modal>
+
+            <Modal show={changeEntry.change} onHide={() => setChangeEntry({"change":false,"id":0})} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title>Change Entry</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Group>
+                        <Form.Label>dish</Form.Label>
+                        <Form.Control onChange={(event) => {setNewEntry.dish(event.target.value)}}></Form.Control>
+                        <Form.Label>ingredient</Form.Label>
+                        <Form.Control onChange={(event) => {setNewEntry.ingredients(event.target.value)}}></Form.Control>
+                        <Form.Label>calories</Form.Label>
+                        <Form.Control onChange={(event) => {setNewEntry.calories(event.target.value)}}></Form.Control>
+                        <Form.Label>fat</Form.Label>
+                        <Form.Control type="number" onChange={(event) => {setNewEntry.fat(event.target.value)}}></Form.Control>
+                    </Form.Group>
+                    <Button onClick={() => changeSingleEntry()}>Change</Button>
+                    <Button onClick={() => setChangeEntry({"change":false,"id":0})}>Cancel</Button>
                 </Modal.Body>
             </Modal>
         </div>
     );
 
+    function changeSingleEntry(){
+        var url = "http://localhost:8080/entry/update/" + changeEntry.id;
+        axios.put(url, newEntry)
+        .then(response => {
+            if (response.status == 200){
+                setRefreshData(true)
+            }
+        })
+    }
+
+    function changeIngredientForEntry(){
+        changeIngredient.change = false;
+        var url = "http://localhost:8080/ingredient/update/" + changeIngredient.id;
+        axios.put(url, {"ingredients": newIngredientName})
+        .then(response => {
+            console.log(response);
+            if (response.status == 200){
+                setRefreshData(true)
+            }
+        })
+    }
     function AddSingleEntry(){
         setAddNewEntry(false);
         var url = "http://localhost:8080/entry/create";
@@ -84,6 +141,8 @@ const Entries = () => {
             if (response.status == 200){
                 setEntries(response.data);
             }
-        }
+        })
     }
 }
+
+export default Entries;

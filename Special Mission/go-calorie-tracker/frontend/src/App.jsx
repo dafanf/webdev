@@ -1,7 +1,7 @@
-import React from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-import Entries from "./components/entries.component"
+import Entries from './components/entries.component'
 function App() {
   return (
     <div>
